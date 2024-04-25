@@ -732,6 +732,7 @@
     transform: translateX(0px);
     margin: 0px 10px;
     top: -30px;
+    width: initial;
   }
   .footer-message {
     font-size: 12px;
