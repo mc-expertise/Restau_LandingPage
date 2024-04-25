@@ -670,6 +670,7 @@
 }
 .chat-with-your7 {
   font-size: 28px;
+  text-decoration: none;
 }
 
 @media (max-width: 1270px) {
@@ -720,14 +721,28 @@
 }
 
 @media (max-width: 500px) {
+  .interested-in-franchise {
+    font-size: var(--font-size-sm);
+  }
+  .footer-form > p {
+    font-size: var(--font-size-2sm);
+  }
   .footer-content {
     left: initial;
     transform: translateX(0px);
     margin: 0px 10px;
+    top: -30px;
   }
   .footer-message {
     font-size: 12px;
-    top: -9px;
+    padding-top: 0px;
+    top: -18px;
+  }
+  .fill-the-form {
+    padding-top: var(--mar-padd-11xl);
+  }
+  .fill-the-form > .overflowHidden:not(:last-child) {
+    margin-bottom: 10px;
   }
 }
 
