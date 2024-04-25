@@ -731,13 +731,13 @@
     left: initial;
     transform: translateX(0px);
     margin: 0px 10px;
-    top: -30px;
+    top: -50px;
     width: initial;
   }
   .footer-message {
     font-size: 12px;
     padding-top: 0px;
-    top: -18px;
+    top: -36px;
   }
   .fill-the-form {
     padding-top: var(--mar-padd-11xl);
