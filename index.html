@@ -531,9 +531,9 @@
                 <br />
                 <input
                   type="text"
-                  id="message2"
-                  class="input-form"
-                  name="message" />
+                  name="message"
+                  id="additionalMessage"
+                  class="input-form" />
               </div>
             </div>
             <button type="submit" class="send-message">SEND MESSAGE</button>
@@ -562,9 +562,19 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      const mainMessage = document.getElementById('message').value;
+      const additionalMessage =
+        document.getElementById('additionalMessage').value;
+
+      const fullMessage = additionalMessage
+        ? `${mainMessage}, ${additionalMessage}`
+        : mainMessage;
+
       const formData = new FormData(form);
+      formData.set('message', fullMessage);
       const object = Object.fromEntries(formData);
       const json = JSON.stringify(object);
+      console.log('formData', object);
       result.innerHTML = 'Please wait...';
 
       fetch('https://api.web3forms.com/submit', {

@@ -10,7 +10,7 @@
   width: 100%;
   position: relative;
   background-color: var(--color-snow);
-  height: 100vh;
+  height: 100dvh;
   overflow-x: hidden;
   text-align: left;
   font-size: var(--font-size-xl);
@@ -720,7 +720,7 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 670px) {
   .interested-in-franchise {
     font-size: var(--font-size-sm);
   }
