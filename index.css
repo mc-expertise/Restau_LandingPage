@@ -451,6 +451,10 @@
   .information-card {
     flex-direction: column;
   }
+  .information-card {
+    padding-bottom: var(--container-tablette);
+    border: none;
+  }
 }
 /* End information section section */
 
@@ -567,6 +571,9 @@
   .respond-section > .respond-bloc:nth-child(2) > .respond-bloc-2 > img {
     width: 100%;
   }
+  .respond-section {
+    padding-top: var(--container-tablette);
+  }
 }
 /* End respond-section */
 /* Start Footer */
@@ -632,6 +639,7 @@
   border-bottom: 0.7px solid var(--blue); /* Corrected */
   outline: none;
   width: 100%;
+  font-size: 18px;
 }
 .send-message {
   background-color: var(--orange);
@@ -640,6 +648,11 @@
   padding: 10px 20px;
   border-radius: 30px;
   margin-top: var(--mar-padd-21xl);
+  border: none;
+  font-size: 18px;
+}
+.send-message:hover {
+  cursor: pointer;
 }
 .footer-message {
   position: relative;

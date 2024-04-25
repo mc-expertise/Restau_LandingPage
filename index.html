@@ -351,9 +351,9 @@
                   >
                   Both of you must successfully complete our initial training
                   program. We will decide whether you and your
-                  <span>SPARTAN GYROS SPECIALIST</span>successfully complete the
-                  initial training program based upon knowledge test results and
-                  our observations of your ability to use the knowledge
+                  <span>SPARTAN GYROS SPECIALIST</span> successfully complete
+                  the initial training program based upon knowledge test results
+                  and our observations of your ability to use the knowledge
                   effectively.
                 </p>
               </div>
@@ -472,7 +472,13 @@
           width="100%"
           class="footer-ellips" />
         <div class="footer-content">
-          <div class="footer-form">
+          <form method="POST" id="form" class="footer-form">
+            <input
+              type="hidden"
+              name="access_key"
+              value="8445ac41-7d7f-466c-ba8a-1eaa6d2dc837" />
+            <input type="hidden" name="from_name" value="Spartan Group" />
+
             <b class="interested-in-franchise"
               >INTERESTED IN FRANCHISE OPPORTUNITIES?</b
             >
@@ -480,36 +486,65 @@
             <div class="fill-the-form">
               <div class="first-name-parent overflowHidden">
                 <div class="first-name">FIRST NAME</div>
-                <input type="text" class="input-form" />
+                <input
+                  type="text"
+                  name="First Name"
+                  id="firstname"
+                  class="input-form"
+                  required />
               </div>
               <div class="last-name-parent overflowHidden">
                 <div class="first-name">LAST NAME</div>
-                <input type="text" class="input-form" />
+                <input
+                  type="text"
+                  id="lastName"
+                  name="Last name"
+                  required
+                  class="input-form" />
               </div>
               <div class="email-parent overflowHidden">
                 <div class="first-name">EMAIL</div>
-                <input type="text" class="input-form" />
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  class="input-form" />
               </div>
               <div class="phone-parent overflowHidden">
                 <div class="first-name">PHONE</div>
-                <input type="text" class="input-form" />
+                <input
+                  type="text"
+                  id="phone"
+                  class="input-form"
+                  name="Phone Number" />
               </div>
               <div class="type-your-message-here-parent overflowHidden">
                 <div class="type-your-message">TYPE YOUR MESSAGE HERE</div>
-                <input type="text" class="input-form" />
+                <input
+                  type="text"
+                  id="message"
+                  name="message"
+                  required
+                  class="input-form" />
                 <br />
                 <br />
-                <input type="text" class="input-form" />
+                <input
+                  type="text"
+                  id="message2"
+                  class="input-form"
+                  name="message" />
               </div>
             </div>
-            <div class="send-message">SEND MESSAGE</div>
-          </div>
+            <button type="submit" class="send-message">SEND MESSAGE</button>
+            <div id="result"></div>
+          </form>
         </div>
         <div class="footer-message">
           <div class="create-custom-landin3">
             Also feel free to contact our franchise department at:
           </div>
-          <b class="chat-with-your6">info@spartaninvestmentsgroup.com</b>
+          <b class="chat-with-your6">franchise@spartaninvestmentsgroup.com</b>
           <b class="chat-with-your7">(952) 284-8282</b>
         </div>
         <img
@@ -521,4 +556,44 @@
       <!-- End Footer sectioin -->
     </div>
   </body>
+  <script>
+    const form = document.getElementById('form');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+      result.innerHTML = 'Please wait...';
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      })
+        .then(async (response) => {
+          let json = await response.json();
+          if (response.status == 200) {
+            result.innerHTML = json.message;
+          } else {
+            console.log(response);
+            result.innerHTML = json.message;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          result.innerHTML = 'Something went wrong!';
+        })
+        .then(function () {
+          form.reset();
+          setTimeout(() => {
+            result.style.display = 'none';
+          }, 3000);
+        });
+    });
+  </script>
 </html>

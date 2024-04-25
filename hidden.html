@@ -474,4 +474,40 @@
         src="./public/pitagyrofries-1@2x.png" />
     </div>
   </body>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    // function sendEmail() {
+    //   Email.send({
+    //     Host: 'smtp.gmail.com',
+    //     Username: 'chouati99mtl@gmail.com',
+    //     Password: 'Gsxr750mtl',
+    //     To: 'mohamed99mtl@gmail.com',
+    //     From: document.getElementById('email').value,
+    //     Subject: 'This is the subject',
+    //     Body: 'this is body',
+    //     // Body:
+    //     //   'Name: ' +
+    //     //   document.getElementById('name').value +
+    //     //   '<br> Email: ' +
+    //     //   document.getElementById('email').value +
+    //     //   '<br> Phone: ' +
+    //     //   document.getElementById('phone').value +
+    //     //   '<br> Message: ' +
+    //     //   document.getElementById('message').value +
+    //     //   '&' +
+    //     //   document.getElementById('message2').value,
+    //   }).then((message) => alert('Message Sent Succesfully'));
+    // }
+    function sendEmail() {
+      Email.send({
+        Host: 'smtp.elasticemail.com',
+        Username: 'mohamed99mtl@gmail.com',
+        Password: 'C7F6A9FB2AAC0870E37861E9FC35095E1D69',
+        To: 'mohamed99mtl@gmail.com',
+        From: 'mohamed99mtl@gmail.com',
+        Subject: 'This is the subject',
+        Body: 'this is body',
+      }).then((message) => alert('Message Sent Successfully'));
+    }
+  </script>
 </html>
