@@ -466,12 +466,8 @@
       <!-- Start Footer sectioin -->
       <div class="footer-section">
         <div class="footer-overview"></div>
-        <img
-          src="/icons/ic_ellipse38.svg"
-          alt=""
-          width="100%"
-          class="footer-ellips" />
-        <div class="footer-content">
+        <img src="/icons/ic_ellipse38.svg" width="100%" class="footer-ellips" />
+        <!-- <div class="footer-content">
           <form method="POST" id="form" class="footer-form">
             <input
               type="hidden"
@@ -539,14 +535,22 @@
             <button type="submit" class="send-message">SEND MESSAGE</button>
             <div id="result"></div>
           </form>
-        </div>
+        </div> -->
         <div class="footer-message">
+          <h1>Contact Us</h1>
           <div class="create-custom-landin3">
             Also feel free to contact our franchise department at:
           </div>
-          <b class="chat-with-your6">franchise@spartaninvestmentsgroup.com</b>
+          <b class="chat-with-your6"
+            ><a
+              href="mailto:franchise@spartaninvestmentsgroup.com"
+              style="text-decoration: none; color: var(--orange)"
+              >franchise@spartaninvestmentsgroup.com</a
+            >
+          </b>
           <a href="" class="chat-with-your7"><b>(954) 284-8282</b></a>
         </div>
+
         <img
           src="/img/inta-12_2.png"
           width="100%"
@@ -557,53 +561,23 @@
     </div>
   </body>
   <script>
-    const form = document.getElementById('form');
-    const result = document.getElementById('result');
+    function sendEmail() {
+      // Define recipient and other email details
+      var recipient = 'recipient@example.com';
+      var subject = 'Subject Here';
+      var body = 'Body Text Here';
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const mainMessage = document.getElementById('message').value;
-      const additionalMessage =
-        document.getElementById('additionalMessage').value;
+      // Construct mailto link
+      var mailtoLink =
+        'mailto:' +
+        recipient +
+        '?subject=' +
+        encodeURIComponent(subject) +
+        '&body=' +
+        encodeURIComponent(body);
 
-      const fullMessage = additionalMessage
-        ? `${mainMessage}, ${additionalMessage}`
-        : mainMessage;
-
-      const formData = new FormData(form);
-      formData.set('message', fullMessage);
-      const object = Object.fromEntries(formData);
-      const json = JSON.stringify(object);
-      console.log('formData', object);
-      result.innerHTML = 'Please wait...';
-
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: json,
-      })
-        .then(async (response) => {
-          let json = await response.json();
-          if (response.status == 200) {
-            result.innerHTML = json.message;
-          } else {
-            console.log(response);
-            result.innerHTML = json.message;
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-          result.innerHTML = 'Something went wrong!';
-        })
-        .then(function () {
-          form.reset();
-          setTimeout(() => {
-            result.style.display = 'none';
-          }, 3000);
-        });
-    });
+      // Open default email client
+      window.location.href = mailtoLink;
+    }
   </script>
 </html>

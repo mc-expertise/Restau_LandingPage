@@ -655,14 +655,17 @@
   cursor: pointer;
 }
 .footer-message {
-  position: relative;
+  position: absolute;
+  width: 100%;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  top: -64px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .footer-message > div,
 .chat-with-your7 {
@@ -679,16 +682,9 @@
     padding: var(--mar-padd-21xl);
   }
   .footer-message {
-    padding-top: var(--mar-padd-11xl);
-    padding-bottom: 0px;
-    top: -18px;
-    text-align: center;
-    font-size: 15px;
-  }
-  .footer-message {
-    padding-top: var(--mar-padd-11xl);
-    padding-bottom: 0px;
-    top: -18px;
+    /* padding-top: var(--mar-padd-11xl);
+    padding-bottom: 0px; */
+    /* top: -18px; */
     text-align: center;
     font-size: 15px;
   }
@@ -702,13 +698,6 @@
     top: 10px;
     padding: var(--mar-padd-xl);
   }
-  .footer-message {
-    padding-top: var(--mar-padd-11xl);
-    padding-bottom: 0px;
-    top: 0px;
-    text-align: center;
-    font-size: 15px;
-  }
 }
 
 @media (max-width: 800px) {
@@ -721,6 +710,9 @@
 }
 
 @media (max-width: 670px) {
+  .footer-section {
+    height: 500px;
+  }
   .interested-in-franchise {
     font-size: var(--font-size-sm);
   }
@@ -736,8 +728,8 @@
   }
   .footer-message {
     font-size: 12px;
-    padding-top: 0px;
-    top: -36px;
+    /* padding-top: 0px;
+    top: -36px; */
   }
   .fill-the-form {
     padding-top: var(--mar-padd-11xl);
